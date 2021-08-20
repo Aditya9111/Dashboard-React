@@ -4,10 +4,8 @@ import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { SideNavData } from "./SideNavData";
 import "./SideNav.css";
-import { IconContext } from "react-icons";
 import NavBar from "../NavBar/NavBar";
 import icon from "../../assets/icon.jpg";
-import styled from "styled-components";
 
 function SideNav() {
   const [sidebar, setSidebar] = useState(false);
