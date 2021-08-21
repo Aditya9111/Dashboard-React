@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
+import * as MdIcons from "react-icons/md";
 
 const Home = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    const apiUrl =
-      "https://raw.githubusercontent.com/akshita151199/Termmonitor-APIs/main/dashboard";
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setData(data));
+    const apiUrl = "https://jsonplaceholder.typicode.com/users";
+
+    const interval = setInterval(() => {
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => setData(data));
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, [setData]);
-  console.log(data);
+
   return (
     <div className="page">
       <div className="title">
@@ -36,7 +41,7 @@ const Home = () => {
           The data will refresh every 5 minutes
         </h5>
       </div>
-      <div>
+      <div class="full-table">
         <table cellpadding="0" cellspacing="0" border="0">
           <tr>
             <th>Keywords</th>
@@ -48,13 +53,21 @@ const Home = () => {
         </table>
       </div>
 
-      <div class="tbl-content">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tbody>
-            <tr></tr>
-          </tbody>
-        </table>
-      </div>
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          {data.map((data) => (
+            <tr>
+              <td>{data.name}</td>
+              <td>{data.username} </td>
+              <td>{data.email}</td>
+              <td>{data.website}</td>
+              <td>
+                <MdIcons.MdDelete size={25} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
