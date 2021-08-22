@@ -1,5 +1,4 @@
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,62 +7,58 @@
   list-style: none;
 }
 
-.wrapper{
+.wrapper {
   width: 100%;
 }
 
-.wrapper .navbar{
+.wrapper .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 0 30px;
-  background: #3F0E40;
+  background: #3f0e40;
   height: 89px;
 }
 
-.wrapper .navbar ul li{
+.wrapper .navbar ul li {
   display: inline-block;
   margin: 0 10px;
 }
 
-.wrapper .navbar ul li a{
+.wrapper .navbar ul li a {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 12px;
 }
 
-
-
-.heading{
-    color:#fff;
-    font-size: 25px;
-    
+.heading {
+  color: #fff;
+  font-size: 25px;
 }
 
-.searchbar input[type="text"]{
+.searchbar input[type="text"] {
   border: 0;
   height: 37px;
   border-radius: 5px;
   margin-right: 22px;
   width: 350px;
   padding: 10px;
-  
 }
 
-.searchbar input[type='text']::placeholder{
-text-align: right;
-color: #3F0E40;
-font-weight: bold;
-font-size: 12px;
+.searchbar input[type="text"]::placeholder {
+  text-align: right;
+  color: #3f0e40;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 .dot {
- padding-top: 7px;
-    color: #3F0E40;
-    font-weight: bold;
-text-align: center;
+  padding-top: 7px;
+  color: #3f0e40;
+  font-weight: bold;
+  text-align: center;
   height: 37px;
   width: 37px;
   background-color: #fff;
@@ -71,28 +66,26 @@ text-align: center;
   display: inline-block;
 }
 
-
-@media screen and (max-width: 730px){
-  .wrapper .navbar{
+@media screen and (max-width: 730px) {
+  .wrapper .navbar {
     padding: 0px;
     flex-direction: column;
     height: 89px;
     justify-content: center;
   }
-  .wrapper .navbar ul li{
+  .wrapper .navbar ul li {
     display: block;
     text-align: center;
     margin: 10px 0;
   }
-  .searchbar{
+  .searchbar {
     margin-right: -10px;
   }
-  .searchbar input[type="text"]{
-  border: 0;
-  height: 37px;
-  border-radius: 5px;
-  margin-right: 10px;
-  width: 250px;
-  
-}
+  .searchbar input[type="text"] {
+    border: 0;
+    height: 37px;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+  }
 }

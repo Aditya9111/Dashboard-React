@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import * as MdIcons from "react-icons/md";
+import ReactLoading from "react-loading";
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [done, setDone] = useState(true);
 
   useEffect(() => {
     const apiUrl = "https://jsonplaceholder.typicode.com/users";
@@ -11,7 +13,10 @@ const Home = () => {
     const interval = setInterval(() => {
       fetch(apiUrl)
         .then((response) => response.json())
-        .then((data) => setData(data));
+        .then((data) => {
+          setData(data);
+          setDone(false);
+        });
     }, 5000);
 
     return () => clearInterval(interval);
@@ -41,33 +46,50 @@ const Home = () => {
           The data will refresh every 5 minutes
         </h5>
       </div>
-      <div class="full-table">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tr>
-            <th>Keywords</th>
-            <th>Goal</th>
-            <th>Matches</th>
-            <th>Search Status</th>
-            <th>Delete Keyword</th>
-          </tr>
-        </table>
-      </div>
+      <>
+        {done ? (
+          <ReactLoading
+            className="loader"
+            type={"spin"}
+            color="#3f0e40"
+            width={"8%"}
+            height={"8%"}
+          />
+        ) : (
+          <>
+            <div className="full-table">
+              <table cellPadding="0" cellSpacing="0" border="0">
+                <tbody>
+                  <tr>
+                    <th>Keywords</th>
+                    <th>Goal</th>
+                    <th>Matches</th>
+                    <th>Search Status</th>
+                    <th>Delete Keyword</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tbody>
-          {data.map((data) => (
-            <tr>
-              <td>{data.name}</td>
-              <td>{data.username} </td>
-              <td>{data.email}</td>
-              <td>{data.website}</td>
-              <td>
-                <MdIcons.MdDelete size={25} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+            <table cellPadding="0" cellSpacing="0" border="0">
+              <tbody>
+                {data.map((data) => (
+                  <tr key={data.id}>
+                    <td>{data.name}</td>
+                    <td>{data.username} </td>
+                    <td>{data.name}</td>
+                    <td>{data.website}</td>
+                    <td>
+                      <MdIcons.MdDelete size={25} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        )}
+      </>
+      <button className="result-button">VIEW RESULTS</button>
     </div>
   );
 };

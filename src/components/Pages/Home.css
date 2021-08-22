@@ -64,6 +64,23 @@ body {
   margin: 18px;
   font-size: 20px;
   font-weight: 500;
+  text-align: center;
+}
+
+.result-button {
+  border-radius: 5px;
+  right: 0px;
+  border: none;
+  height: 51px;
+  width: 185px;
+  cursor: pointer;
+  color: white;
+  background-color: #3f0e40;
+  text-align: center;
+  margin: 18px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 35%;
 }
 
 .box {
@@ -100,7 +117,6 @@ th {
 td {
   padding: 15px;
   text-align: center;
-
   font-size: 14px;
   border-bottom: 1px solid rgb(214, 214, 214);
 }
@@ -116,6 +132,10 @@ tbody {
   margin-top: 0px;
   text-align: center;
   background-color: #fff;
+}
+
+.loader {
+  margin-left: 35%;
 }
 
 @media screen and (max-width: 730px) {
@@ -167,5 +187,37 @@ tbody {
     margin: 18px;
     font-size: 12px;
     font-weight: 500;
+  }
+
+  th {
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(214, 214, 214);
+  }
+
+  td {
+    padding: 10px;
+    text-align: center;
+    font-size: 8px;
+    border-bottom: 1px solid rgb(214, 214, 214);
+  }
+
+  .result-button {
+    border-radius: 5px;
+    right: 0px;
+    border: none;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    color: white;
+    background-color: #3f0e40;
+    text-align: center;
+    margin: 18px;
+    font-size: 10px;
+    font-weight: 500;
+    margin-left: 30%;
   }
 }
